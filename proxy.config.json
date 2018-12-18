@@ -1,0 +1,11 @@
+{
+    "/articles*": {
+        "target": "http://localhost:3000"
+    },
+    "/comments*": {
+        "target": "http://localhost:3000"
+    },
+    "/authors*": {
+        "target": "http://localhost:3000"
+    }
+}
