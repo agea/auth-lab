@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 
@@ -17,7 +18,7 @@ import { LoginComponent } from './pages/login/login.component';
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent },
+      { path: '', component: HomeComponent, canActivate: [AuthGuardService] },
       { path: 'login', component: LoginComponent },
     ])
   ],
