@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   public authors: any[] = [];
 
   ngOnInit() {
-    this.http.get<any[]>('/authors').subscribe((res) => {
+    this.http.get<any[]>('/products').subscribe((res) => {
       this.authors = res;
     });
   }
