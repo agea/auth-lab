@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -11,15 +12,20 @@ export class LoginComponent implements OnInit {
   public username: string;
   public password: string;
 
-  constructor(private readonly router: Router) {
-    localStorage.removeItem('username');
-    localStorage.removeItem('password');
+  constructor(private readonly router: Router, private readonly http: HttpClient) {
+    localStorage.removeItem('token');
   }
 
   login() {
-    localStorage.setItem('username', this.username);
-    localStorage.setItem('password', this.password);
-    this.router.navigate(['/']);
+    this.http.post('/auth/login',
+      {
+        email: this.username,
+        password: this.password
+      })
+      .subscribe(res => {
+        localStorage.setItem('token', JSON.stringify(res));
+        this.router.navigate(['/']);
+      });
   }
 
   ngOnInit() {

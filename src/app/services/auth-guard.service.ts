@@ -9,9 +9,7 @@ export class AuthGuardService implements CanActivate {
   constructor(private readonly router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    const username = localStorage.getItem('username');
-    const password = localStorage.getItem('password');
-    if (username && password) {
+    if (localStorage.getItem('token')) {
       return true;
     }
     this.router.navigate(['/login']);

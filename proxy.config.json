@@ -1,4 +1,7 @@
 {
+    "/auth*": {
+        "target": "http://localhost:3000"
+    },
     "/articles*": {
         "target": "http://localhost:3000"
     },
