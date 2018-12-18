@@ -1,0 +1,14 @@
+form {
+    max-width: 400px;
+    margin: auto;
+    border: 1px solid #ddd;
+}
+
+.input-group {
+    padding: 1em;
+}
+
+.input-group * {
+    display: block;
+    width: 100%;
+}
